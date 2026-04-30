@@ -6,30 +6,32 @@
 
 # Cole abaixo a linha relevante da saída de:
 # strace echo "ola" 2>&1 | grep write
-
+write(1, "ola\n", 4ola
 Saída filtrada:
 
 # Anote:
-#   Argumento 1 (file descriptor):
-#   O que está sendo escrito:
-#   Valor de retorno:
+#   Argumento 1 (file descriptor): 1
+#   O que está sendo escrito: "ola\n"
+#   Valor de retorno: 4
 
-fd:
-conteúdo:
-retorno:
+fd: 1
+conteúdo: "ola\n"
+retorno: 4
 
 
 # PARTE B — Programa C com write() direto
 
 # Cole aqui o código de syscall_direto.c que você escreveu:
 
-[código-fonte]
-
+#include <unistd.h>
+int main() {
+    write(1, "ola\n", 4);
+    return 0;
+}
 
 # Cole aqui a linha write(...) da saída de strace -o strace.txt ./syscall_direto:
 
-[saída do strace]
-
+strace -o strace.txt ./syscall_direto
 
 # PARTE C — Questões de síntese
 
@@ -38,7 +40,7 @@ retorno:
 #    de usuário consegue fazer I/O sem executar instruções privilegiadas diretamente.
 
 Resposta 1:
-
+O programa do usuário não encosta no hardware "na mão" porque ele não tem permissão para isso. Em vez de tentar fazer isso, ele pede um favor para o Sistema Operacional através de uma chamada de sistema (syscall.
 
 # 2. Na apresentação sobre a genealogia do software, vimos que os programas de canal
 #    eram responsáveis por intermediar a transferência de dados entre a memória e os
@@ -46,3 +48,4 @@ Resposta 1:
 #    operacional moderno herda esse papel? 
 
 Resposta 2:
+Hoje em dia, quem faz esse papel são os Drivers de Dispositivo junto com o DMA (Acesso Direto à Memória).

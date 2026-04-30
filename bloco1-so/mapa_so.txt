@@ -7,30 +7,43 @@
 # explicando a função do diretório com suas próprias palavras.
 
 /proc
-  
+
+ls /proc
+Explicação: É uma pasta "mentirosa" (virtual). Ela não existe no disco, serve só para mostrar o que o sistema está fazendo agora, como se fosse um raio-x do computador.  
 
 /proc/cpuinfo
-  
+
+cat /proc/cpuinfo
+Explicação: É o "RG" do processador. Mostra o modelo, a velocidade e quantos núcleos ele tem.
 
 /proc/meminfo
-  
+
+cat /proc/meminfo
+Explicação: É o medidor de combustível da memória RAM. Mostra quanto você tem e quanto ainda está livre.
 
 /proc/uptime
-  
+
+cat /proc/uptime
+Explicação: É o cronômetro do sistema. Diz há quantos segundos o PC está ligado desde o último "boot".
 
 /bin
 
+ls /bin
+Explicação: É a caixa de ferramentas básica. Aqui ficam os comandos essenciais que a gente usa no terminal, tipo o ls e o cat.
   
 /dev
   
+ls /dev
+Explicação: É onde o hardware "mora". No Linux, o disco rígido, o mouse e o som aparecem aqui como se fossem arquivos comuns.
 
 /etc
   
-
+ls /etc
+Explicação: É a pasta de configuração. Se você quiser mudar o nome do PC ou as senhas, é aqui que os arquivos ficam.
 
 # PARTE B — Questão de reflexão
 # A apresentação mostrou que o supervisor controlava o acesso a I/O
 # e que rotinas de dispositivo traduziam comandos.
 # Em qual diretório do Linux você reconhece essa função?
 
-Resposta:
+Resposta: O diretório é o /dev.

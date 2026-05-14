@@ -16,3 +16,13 @@ clean:
 	rm -f soma soma.o soma.i soma.s
 
 .PHONY: clean
+
+# Novas regras da Atividade 7
+relatorio:
+	bash relatorio.sh > relatorio_build.txt
+	@echo "Relatorio gerado."
+
+clean:
+	rm -f soma soma.o soma.i soma.s
+
+.PHONY: clean relatorio

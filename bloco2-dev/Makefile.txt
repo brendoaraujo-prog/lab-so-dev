@@ -1,28 +1,30 @@
-# Makefile — Atividade 6
-# Complete as regras conforme as instruções da ficha.
-# ATENÇÃO: os comandos de cada regra devem começar com TAB (não espaços).
-# ─────────────────────────────────────────────────────
-
+# Makefile — Atividade 6 e 7
 CC = gcc
 CFLAGS = -Wall -g
 
+# 1. Alvo Principal: Gera o executável final (Linkedição)
 soma: soma.o
 	$(CC) soma.o -o soma
 
-soma.o: soma.c
-	$(CC) $(CFLAGS) -c soma.c -o soma.o
+# 2. Regra para o arquivo objeto (Montagem)
+soma.o: soma.s
+	$(CC) $(CFLAGS) -c soma.s -o soma.o
 
-clean:
-	rm -f soma soma.o soma.i soma.s
+# 3. Regra para o Assembly (Compilação) [Sugestão da Atividade]
+soma.s: soma.i
+	$(CC) -S soma.i -o soma.s
 
-.PHONY: clean
+# 4. Regra para o arquivo pré-processado (Pré-processamento)
+soma.i: soma.c
+	$(CC) -E soma.c -o soma.i
 
-# Novas regras da Atividade 7
+# --- ATIVIDADE 7: Automação de Relatório ---
 relatorio:
 	bash relatorio.sh > relatorio_build.txt
-	@echo "Relatorio gerado."
+	@echo "Relatorio gerado." [cite: 42]
 
+# Limpeza e declaração de alvos PHONY
 clean:
-	rm -f soma soma.o soma.i soma.s
+	rm -f soma soma.o soma.i soma.s [cite: 36, 37]
 
-.PHONY: clean relatorio
+.PHONY: clean relatorio [cite: 43]

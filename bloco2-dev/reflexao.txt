@@ -8,7 +8,7 @@
 # // ASSIGN SYS004,TAPE para associar um job a um dispositivo.
 # No shell moderno, qual mecanismo cumpre papel equivalente?
 
-Resposta:
+Resposta: O mecanismo equivalente são os redirecionadores (>, <, >>) e os pipes (|). Assim como o JCL associava jobs a dispositivos, o Shell moderno associa a entrada e saída de processos a arquivos ou a outros programas.
 
 # ─────────────────────────────────────────────────────
 
@@ -19,11 +19,11 @@ Resposta:
 #    papel? Como o make sabe que não precisa recompilar um arquivo
 #    que não mudou?
 
-Resposta 1:
+Resposta 1: O make utiliza o mecanismo de timestamps (carimbos de tempo). Ele compara a data do arquivo fonte com a do arquivo gerado; se o fonte não mudou, ele não recompila
 
 
 # 2. O monitor unificava "supervisor, carregador e rotinas de I/O
 #    sob uma interface textual". O que o Makefile unifica no fluxo
 #    de desenvolvimento moderno?
 
-Resposta 2:
+Resposta 2: O Makefile unifica o fluxo de desenvolvimento, automatizando as dependências e garantindo a reprodutibilidade do projeto em qualquer máquina.
